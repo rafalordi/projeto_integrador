@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
+{% load static %}
 
-{% block 'titulo' %}Login{% endblock %}
-
-{% block 'conteudo' %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="shortcut icon" href="{% static 'img/Icons8-Windows-8-Printing-Book-Stack.ico' %}" type="image/x-icon">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    
 <div class="container">
-    <br>  
     {% if status == '1'%}
     <div class="alert alert-danger" role="alert">
         Email ou senha inválidos
@@ -17,38 +24,22 @@
     </div>
     {% endif %}
 
-    <div class="row">
+    <main class="login">
+        <div class="login_counteiner">
+            <img src="{% static 'img/BiblioTec2.png' %}" alt="">
+            <h1 class="login_title">Login</h1>
+            <form class="login-form" method="POST" action="{% url 'valida_login' %}"> {% csrf_token %}
 
-    <div class="col-md-3">
-    
-    </div>
-    
-    <div class="col-md">
-
-    <h1>Login</h1>
-    <hr>
-
-    <form method="POST" action="{% url 'valida_login' %}"> {% csrf_token %}
-
-        <br>
-        <label>Email</label>
-        <input name="email" class="form-control" type="text" placeholder="Email...">
-        <br>
-        <label>Senha</label>
-        <input name="senha" class="form-control" type="password" placeholder="Senha...">
-        <br>
-        <input class="btn btn-info btn-lg" type="submit" value="Enviar">
-        <a href="{% url 'cadastro' %}" class="btn btn-warning btn-lg">Cadastro</a>
-    </form>
-
-    </div>
-
-    <div class="col-md-3">
-
-    </div>
-
-    </div>
-
+                <br>
+                <input class="login_input" name="email" type="email" placeholder="E-mail"/>
+                <span class="login_input_border form-control"></span>
+                <input class="login_input" name="senha" type="password" placeholder="Senha"/>
+                <span class="login_input_border form-control"></span>
+                <button class="login_submit" type="submit" value="Enviar">Login</button>
+                <a class="loginreset" href="">Esqueci a Senha</a>  
+            </form>
+        </div>
+    </main>
 </div>
-
-{% endblock %}
+</body>
+</html>

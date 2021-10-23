@@ -4,6 +4,12 @@ from .models import Usuario
 from django.shortcuts import redirect
 from hashlib import sha256
 
+def index(request):
+    if request.session.get('usuarios'):
+        return redirect('livros/home')
+    status = request.GET.get('status')
+    return render(request, 'index.html', {'status' : status})
+
 def login(request):
     if request.session.get('usuarios'):
         return redirect('livros/home')

@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <link rel="shortcut icon" href="{% static 'img/Icons8-Windows-8-Printing-Book-Stack.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href=""/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioTec</title>
+
+</head>
+
+<body>
+    <header>
+
+        <ul class="menu">
+            <li><a href="{% url 'login' %}">Logar</a></li>
+            <li><a href="{% url 'cadastro' %}">Cadastrar-se</a></li>
+        </ul>
+        <div class="bibliotec"><img src="{% static 'img/BiblioTec.png' %}" alt=""></div>
+        <div class="Site-Univesp">
+            <ul>
+                <li><a href="https://www.univesp.br" target="_blank"><link rel="stylesheet" href="https://www.univesp.br"><img src="{% static 'img/logo-univesp_completo.png' %}" alt=""></a></li>
+            </ul>
+        </div>
+        
+    </header>
+
+    <section class="counteiner">
+        <div>
+            <picture>
+                <source media="(max-width: 500px)" srcset="{% static 'img/Livro3.jpg' %}">
+                <source media="(max-width: 800px)" srcset="{% static 'img/Livro2.jpg' %}">
+                <img src="{% static 'img/Livro1.jpg' %}" alt="">
+            </picture>
+        </div>
+        <div>
+            <picture>
+                <source media="(max-width: 500px)" srcset="{% static 'img/Cinza3.png' %}">
+                <source media="(max-width: 800px)" srcset="{% static 'img/Cinza2.png' %}">
+                <img src="{% static 'img/Cinza.png' %}" alt="">
+            </picture>
+        </div>
+    </section>
+    <h1>2021-2021</h1>
+</body>
+
+</html>
